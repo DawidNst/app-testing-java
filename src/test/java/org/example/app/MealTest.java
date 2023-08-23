@@ -55,4 +55,5 @@ class MealTest {
         //then
         assertEquals(meal,meal1);
     }
+
 }
