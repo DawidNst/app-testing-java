@@ -43,5 +43,21 @@ class AccountTest {
         assertNull(address);
     }
 
+    @Test
+    void defaultDeliveryAddressNotBeNull(){
+
+        //given
+        Address address = new Address("mlynowa", "14");
+        Account account = new Account();
+        account.setDefaultDelivery(address);
+
+        //when
+        Account defaultAddress = account;
+
+        //then
+        assertNotNull(defaultAddress);
+
+    }
+
 
 }
