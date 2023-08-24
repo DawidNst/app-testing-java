@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountTest {
 
     @Test
-    void newCreatedAccountNotBeActive(){
+    void newCreatedAccountNotBeActive() {
 
         //given
         //when
@@ -31,7 +31,7 @@ class AccountTest {
     }
 
     @Test
-    void newCreatedAccountNotDeliveryAddressSet(){
+    void newCreatedAccountNotDeliveryAddressSet() {
 
         //given
         Account account = new Account();
@@ -44,7 +44,7 @@ class AccountTest {
     }
 
     @Test
-    void defaultDeliveryAddressNotBeNull(){
+    void defaultDeliveryAddressNotBeNull() {
 
         //given
         Address address = new Address("mlynowa", "14");
@@ -58,6 +58,5 @@ class AccountTest {
         assertNotNull(defaultAddress);
 
     }
-
 
 }
