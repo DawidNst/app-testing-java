@@ -2,7 +2,7 @@ package org.example.app;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -16,7 +16,6 @@ class AccountTest {
 
         //then
         assertFalse(newAccount.isActive());
-        assertThat(newAccount.isActive()).isFalse();
 
 
     }
@@ -32,7 +31,6 @@ class AccountTest {
 
         //then
         assertTrue(newAccount.isActive());
-        assertThat(newAccount.isActive()).isTrue();
     }
 
     @Test
@@ -46,7 +44,6 @@ class AccountTest {
 
         //then
         assertNull(address);
-        assertThat(address).isNull();
     }
 
     @Test
@@ -62,7 +59,6 @@ class AccountTest {
 
         //then
         assertNotNull(defaultAddress);
-        assertThat(defaultAddress).isNotNull();
 
     }
 
