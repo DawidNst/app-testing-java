@@ -18,12 +18,12 @@ class MealTest {
         int discountedPrice = meal.getDiscountPrice(26);
 
         //then
-        assertEquals(70,discountedPrice);//wartość oczekiwana, wartość faktyczna
+        assertEquals(70, discountedPrice);//wartość oczekiwana, wartość faktyczna
         assertThat(discountedPrice).isEqualTo(70);
     }
 
     @Test
-    void referencesToTheSameObject(){
+    void referencesToTheSameObject() {
 
         //given
         //when
@@ -31,13 +31,13 @@ class MealTest {
         Meal meal1 = meal;
 
         //then
-        assertSame(meal,meal1);
+        assertSame(meal, meal1);
         assertThat(meal).isSameAs(meal1);
 
     }
 
     @Test
-    void referencesToDifrentObject(){
+    void referencesToDifrentObject() {
 
         //given
         //when
@@ -45,20 +45,20 @@ class MealTest {
         Meal meal1 = new Meal(19);
 
         //then
-        assertNotSame(meal,meal1);
+        assertNotSame(meal, meal1);
         assertThat(meal).isNotSameAs(meal1);
 
     }
 
     @Test
-    void twoMealsEqualPriceAndName(){
+    void twoMealsEqualPriceAndName() {
 
         //given
-        Meal meal = new Meal(15,"burger");
-        Meal meal1 = new Meal(15,"burger");
+        Meal meal = new Meal(15, "burger");
+        Meal meal1 = new Meal(15, "burger");
 
         //then
-        assertEquals(meal,meal1);
+        assertEquals(meal, meal1);
         assertThat(meal).isEqualTo(meal1);
     }
 

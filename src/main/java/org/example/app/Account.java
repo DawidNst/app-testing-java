@@ -17,13 +17,15 @@ public class Account {
         this.defaultDelivery = defaultDelivery;
     }
 
-    Account (){
-        this.active=false;
+    Account() {
+        this.active = false;
     }
-    void activate(){
-        this.active=true;
+
+    void activate() {
+        this.active = true;
     }
-    boolean isActive(){
-        return  this.active;
+
+    boolean isActive() {
+        return this.active;
     }
 }

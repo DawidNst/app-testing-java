@@ -19,7 +19,6 @@ class AccountTest {
         assertThat(newAccount.isActive()).isFalse();
 
 
-
     }
 
     @Test

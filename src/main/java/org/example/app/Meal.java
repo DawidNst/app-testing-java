@@ -20,8 +20,8 @@ public class Meal {
         return price;
     }
 
-    public int getDiscountPrice(int discount){
-        return this.price-discount;
+    public int getDiscountPrice(int discount) {
+        return this.price - discount;
     }
 
     @Override
