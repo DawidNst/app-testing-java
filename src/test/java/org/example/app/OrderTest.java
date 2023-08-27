@@ -62,4 +62,23 @@ public class OrderTest {
         assertThat(order.getMeals(), hasSize(0));
         assertThat(order.getMeals(), not(contains(meal)));//sprawdza czy w podanej kolekcji nie występuje podany element
     }
+
+    @Test
+    void mealsShouldBeCorrectOrderAfterAddingOrder(){
+
+        //given
+        Meal meal = new Meal(15, "Burger");
+        Meal meal1 = new Meal(9, "Pizza");
+        Order order =new Order();
+
+        //when
+        containsInAnyOrder().equals(meal);
+        containsInAnyOrder().equals(meal1);
+        order.addMealToOrder(meal);
+        order.addMealToOrder(meal1);
+
+        //then
+        assertThat(order.getMeals(),contains(meal,meal1));
+
+    }
 }
