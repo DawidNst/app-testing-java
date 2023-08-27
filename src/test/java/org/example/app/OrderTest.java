@@ -3,6 +3,9 @@ package org.example.app;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -44,11 +47,11 @@ public class OrderTest {
         //then
         assertThat(order.getMeals(), hasSize(1));
         assertThat(order.getMeals(), contains(meal));
-        assertThat(order.getMeals().get(0).getPrice(),equalTo(25));
+        assertThat(order.getMeals().get(0).getPrice(), equalTo(25));
     }
 
     @Test
-    void removingMealFromOrder(){
+    void removingMealFromOrder() {
 
         //given
         Meal meal = new Meal(15, "Burger");
@@ -64,12 +67,12 @@ public class OrderTest {
     }
 
     @Test
-    void mealsShouldBeCorrectOrderAfterAddingOrder(){
+    void mealsShouldBeCorrectOrderAfterAddingOrder() {
 
         //given
         Meal meal = new Meal(15, "Burger");
         Meal meal1 = new Meal(9, "Pizza");
-        Order order =new Order();
+        Order order = new Order();
 
         //when
         containsInAnyOrder().equals(meal);
@@ -78,7 +81,24 @@ public class OrderTest {
         order.addMealToOrder(meal1);
 
         //then
-        assertThat(order.getMeals(),contains(meal,meal1));
+        assertThat(order.getMeals(), contains(meal, meal1));
+        assertThat(order.getMeals(), containsInAnyOrder(meal1, meal));//metoda przyjmuje różne kolejność kolekcji
 
+    }
+
+    @Test
+    void testIfTwoMealList(){
+
+        //given
+        Meal meal = new Meal(15, "Burger");
+        Meal meal1 = new Meal(9, "Pizza");
+        Meal meal2 = new Meal(26, "TripleBurger");
+
+        //when
+        List<Meal> meals = Arrays.asList(meal,meal1);
+        List<Meal> meals1 = Arrays.asList(meal,meal1);
+
+        //
+        assertThat(meals, is(meals1));//metoda porównuje czy kolekcje są sobie równe
     }
 }
