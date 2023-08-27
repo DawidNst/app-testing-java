@@ -1,6 +1,5 @@
 package org.example.app;
 
-import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 
 
@@ -45,6 +44,7 @@ public class OrderTest {
         //then
         assertThat(order.getMeals(), hasSize(1));
         assertThat(order.getMeals(), contains(meal));
+        assertThat(order.getMeals().get(0).getPrice(),equalTo(25));
     }
 
 }
