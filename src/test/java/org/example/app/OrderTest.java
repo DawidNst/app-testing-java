@@ -47,4 +47,19 @@ public class OrderTest {
         assertThat(order.getMeals().get(0).getPrice(),equalTo(25));
     }
 
+    @Test
+    void removingMealFromOrder(){
+
+        //given
+        Meal meal = new Meal(15, "Burger");
+        Order order = new Order();
+
+        //when
+        order.addMealToOrder(meal);
+        order.removeMealFromOrder(meal);
+
+        //then
+        assertThat(order.getMeals(), hasSize(0));
+        assertThat(order.getMeals(), not(contains(meal)));//sprawdza czy w podanej kolekcji nie występuje podany element
+    }
 }
