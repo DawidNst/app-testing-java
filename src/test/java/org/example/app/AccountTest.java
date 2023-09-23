@@ -1,6 +1,11 @@
 package org.example.app;
+
+
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -42,6 +47,8 @@ class AccountTest {
 
         //then
         assertNull(address);
+        assertThat(address, null);
+
     }
 
     @Test
@@ -50,13 +57,14 @@ class AccountTest {
         //given
         Address address = new Address("mlynowa", "14");
         Account account = new Account();
-        account.setDefaultDelivery(address);
+
 
         //when
-        Account defaultAddress = account;
+        Address defaultAddress = account.getDefaultDelivery();
 
         //then
         assertNotNull(defaultAddress);
+        assertThat(defaultAddress, is(notNullValue()));
 
     }
 

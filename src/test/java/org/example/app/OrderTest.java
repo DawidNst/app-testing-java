@@ -2,10 +2,9 @@ package org.example.app;
 
 import org.junit.jupiter.api.Test;
 
-
-import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -42,7 +41,7 @@ public class OrderTest {
         Order order = new Order();
 
         //when
-        order.addMealToOrder(meal);
+        order.getMeals();
 
         //then
         assertThat(order.getMeals(), hasSize(1));
@@ -77,8 +76,6 @@ public class OrderTest {
         //when
         containsInAnyOrder().equals(meal);
         containsInAnyOrder().equals(meal1);
-        order.addMealToOrder(meal);
-        order.addMealToOrder(meal1);
 
         //then
         assertThat(order.getMeals(), contains(meal, meal1));
@@ -95,8 +92,8 @@ public class OrderTest {
         Meal meal2 = new Meal(26, "TripleBurger");
 
         //when
-        List<Meal> meals = Arrays.asList(meal,meal1);
-        List<Meal> meals1 = Arrays.asList(meal,meal1);
+        List<Meal> meals = asList(meal,meal1);
+        List<Meal> meals1 = asList(meal,meal1);
 
         //
         assertThat(meals, is(meals1));//metoda porównuje czy kolekcje są sobie równe
