@@ -1,34 +1,38 @@
 package org.example.app;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderBackupTest {
 
-    @BeforeEach
-    void setUp() {
-    }
+    private static OrderBackup orderBackup;
 
-    @AfterEach
-    void tearDown() {
-    }
-
-    @Test
-    void getWriter() {
+    @BeforeAll
+    static void setup() throws FileNotFoundException {
+        orderBackup = new OrderBackup();
+        orderBackup.createFile();
     }
 
     @Test
-    void createFile() {
-    }
+    void backupOrderWithOneMeal() throws IOException {
 
-    @Test
-    void backupOder() {
-    }
+        //given
+        Meal meal = new Meal(15, "Pisces Pizza");
+        Order order = new Order();
+        order.addMealToOrder(meal);
 
-    @Test
-    void closeFile() {
+        //when
+        orderBackup.backupOder(order);
+
+        //then
+        System.out.println("Order" + order.toString() + "backed up.");
+    }
+    @AfterAll
+    static void tearDown() throws IOException{
+        orderBackup.closeFile();
     }
 }
