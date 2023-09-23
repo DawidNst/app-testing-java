@@ -1,5 +1,7 @@
 package org.example.app;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,6 +14,18 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class OrderTest {
 
+    private Order order;
+    @BeforeEach
+    void initializerOrder (){
+        System.out.println("Inside method @BeforeEach");
+        order = new Order();
+    }
+
+    @AfterEach
+    void clenIUp(){
+        System.out.println("Inside method @AfterEach");
+        order.cancel();
+    }
     @Test
     void testAssertArrayEquals() {
 
@@ -26,8 +40,6 @@ public class OrderTest {
     @Test
     void mealListNotByEmptyAfterCreationOrder() {
 
-        //given
-        Order order = new Order();
 
         //then
         assertThat(order.getMeals(), empty());
@@ -38,7 +50,6 @@ public class OrderTest {
 
         //given
         Meal meal = new Meal(25, "Pizza");
-        Order order = new Order();
 
         //when
         order.getMeals();
@@ -54,7 +65,6 @@ public class OrderTest {
 
         //given
         Meal meal = new Meal(15, "Burger");
-        Order order = new Order();
 
         //when
         order.addMealToOrder(meal);
@@ -71,7 +81,6 @@ public class OrderTest {
         //given
         Meal meal = new Meal(15, "Burger");
         Meal meal1 = new Meal(9, "Pizza");
-        Order order = new Order();
 
         //when
         containsInAnyOrder().equals(meal);
