@@ -40,6 +40,8 @@ public class Order {
                 '}';
     }
 
+    public static class OrderBackup {
+    }
 }
 
 
