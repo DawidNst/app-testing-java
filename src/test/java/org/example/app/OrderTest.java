@@ -1,5 +1,6 @@
 package org.example.app;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -43,6 +44,9 @@ public class OrderTest {
 
         //then
         assertThat(order.getMeals(), empty());
+        assertThat(order.getMeals().size(), equalTo(0));
+        assertThat(order.getMeals(), hasSize(0));
+        MatcherAssert.assertThat(order.getMeals(), emptyCollectionOf(Meal.class));
     }
 
     @Test
@@ -50,13 +54,15 @@ public class OrderTest {
 
         //given
         Meal meal = new Meal(25, "Pizza");
+        Meal meal2 = new Meal(10, "Sandwich");
 
         //when
-        order.getMeals();
+        order.addMealToOrder(meal);
 
         //then
         assertThat(order.getMeals(), hasSize(1));
         assertThat(order.getMeals(), contains(meal));
+        assertThat(order.getMeals(), hasItem(meal));
         assertThat(order.getMeals().get(0).getPrice(), equalTo(25));
     }
 
@@ -83,12 +89,12 @@ public class OrderTest {
         Meal meal1 = new Meal(9, "Pizza");
 
         //when
-        containsInAnyOrder().equals(meal);
-        containsInAnyOrder().equals(meal1);
+        order.addMealToOrder(meal);
+        order.addMealToOrder(meal1);
 
         //then
-        assertThat(order.getMeals(), contains(meal, meal1));
-        assertThat(order.getMeals(), containsInAnyOrder(meal1, meal));//metoda przyjmuje różne kolejność kolekcji
+        assertThat(order.getMeals().get(0),is(meal));
+        assertThat(order.getMeals().get(1),is(meal1));//metoda przyjmuje różne kolejność kolekcji
 
     }
 
