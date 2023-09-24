@@ -12,13 +12,13 @@ class OrderBackupTest {
     private static OrderBackup orderBackup;
 
     @BeforeAll
-    static void setup() throws FileNotFoundException {
+    static void setup() throws FileNotFoundException {//otwarcie i intilizacja pliku
         orderBackup = new OrderBackup();
         orderBackup.createFile();
     }
 
     @Test
-    void backupOrderWithOneMeal() throws IOException {
+    void backupOrderWithOneMeal() throws IOException {//test który sprawdza otwarcie i zakmniecie pliku z jego tworzeniem
 
         //given
         Meal meal = new Meal(15, "Pisces Pizza");
@@ -32,7 +32,7 @@ class OrderBackupTest {
         System.out.println("Order" + order.toString() + "backed up");
     }
     @AfterAll
-    static void tearDown() throws IOException{
+    static void tearDown() throws IOException{// zamknięcie pliku
         orderBackup.closeFile();
     }
 }
