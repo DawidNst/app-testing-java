@@ -29,7 +29,7 @@ class OrderBackupTest {
         orderBackup.backupOder(order);
 
         //then
-        System.out.println("Order" + order.toString() + "backed up.");
+        System.out.println("Order" + order.toString() + "backed up");
     }
     @AfterAll
     static void tearDown() throws IOException{
