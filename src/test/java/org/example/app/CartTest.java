@@ -1,7 +1,6 @@
 package org.example.app;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.time.Duration;
 
