@@ -12,6 +12,11 @@ public class Cart {
     void clearCart(){
         this.orders.clear();
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     void simulateOrder(){
         for(int i = 0; i< 10000; i ++){
             Meal meal = new Meal(i%39,"Burger" + i);
@@ -21,5 +26,6 @@ public class Cart {
         }
         System.out.println("Cart size" + orders.size());
         clearCart();
+
     }
 }
