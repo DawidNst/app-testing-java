@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 class AccountTest {
 
@@ -73,6 +74,21 @@ class AccountTest {
         assertNotNull(defaultAddress);
         assertThat(defaultAddress, is(notNullValue()));
 
+    }
+
+    @Test
+    void newAccountNotNullAdressShouldBeActive() {
+
+        //given
+        Address address = new Address("Słonimska" , "24");
+
+        //when
+        Account account = new Account(address);
+
+        //then
+        assumingThat(address != null, () ->{
+           assertTrue(account.isActive());
+        });
     }
 
 }
