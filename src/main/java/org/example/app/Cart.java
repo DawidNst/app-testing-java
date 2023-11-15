@@ -14,7 +14,7 @@ public class Cart {
     }
     void simulateOrder(){
         for(int i = 0; i< 10000; i ++){
-            Meal meal = new Meal(i%39,"Burger");
+            Meal meal = new Meal(i%39,"Burger" + i);
             Order order = new Order();
             order.addMealToOrder(meal);
             addOrderToCart(order);
