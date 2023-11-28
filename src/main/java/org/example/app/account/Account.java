@@ -26,15 +26,15 @@ public class Account {
         this.defaultDelivery = defaultDelivery;
     }
 
-    Account() {
+    public Account() {
         this.active = false;
     }
 
-    void activate() {
+    public void activate() {
         this.active = true;
     }
 
-    boolean isActive() {
+    public boolean isActive() {
         return this.active;
     }
 }

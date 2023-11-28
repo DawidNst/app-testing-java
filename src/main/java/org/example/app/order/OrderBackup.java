@@ -10,16 +10,16 @@ public class OrderBackup {
         return writer;
     }
 
-    void createFile() throws FileNotFoundException {
+    public void createFile() throws FileNotFoundException {
         File file = new File("orderBackup.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(file);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
         writer = new BufferedWriter(outputStreamWriter);
     }
- void backupOder (Order order) throws IOException {
+ public void backupOder(Order order) throws IOException {
         writer.append(order.toString());
  }
-    void closeFile() throws IOException{
+    public void closeFile() throws IOException{
         writer.close();
     }
 }
