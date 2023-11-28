@@ -1,4 +1,4 @@
-package org.example.app;
+package org.example.app.account;
 
 public class Address {
 

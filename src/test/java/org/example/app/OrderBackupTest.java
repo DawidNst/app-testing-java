@@ -1,5 +1,7 @@
 package org.example.app;
 
+import org.example.app.order.Order;
+import org.example.app.order.OrderBackup;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;
@@ -21,7 +23,7 @@ class OrderBackupTest {
 
         //given
         Meal meal = new Meal(15, "Pisces Pizza");
-        Order order = new Order();
+        org.example.app.order.Order order = new Order();
         order.addMealToOrder(meal);
 
         //when

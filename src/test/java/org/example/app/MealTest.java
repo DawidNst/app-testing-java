@@ -1,5 +1,6 @@
 package org.example.app;
 
+import org.example.app.order.Order;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;

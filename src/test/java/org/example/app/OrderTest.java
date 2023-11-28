@@ -1,5 +1,6 @@
 package org.example.app;
 
+import org.example.app.order.Order;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
