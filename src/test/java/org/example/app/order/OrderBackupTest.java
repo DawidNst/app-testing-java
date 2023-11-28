@@ -1,5 +1,6 @@
-package org.example.app;
+package org.example.app.order;
 
+import org.example.app.Meal;
 import org.example.app.order.Order;
 import org.example.app.order.OrderBackup;
 import org.junit.jupiter.api.*;

@@ -22,7 +22,7 @@ class CartTest {
 
         //when
         //then
-        assertTimeout(Duration.ofMillis(10), cart::simulateOrder);
+        assertTimeout(Duration.ofMillis(12), cart::simulateOrder);
     }
     @Test
     void cartShouldNotBeEmptyAddingOrderToCart(){

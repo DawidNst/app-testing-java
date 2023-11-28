@@ -1,4 +1,4 @@
-package org.example.app;
+package org.example.app.order;
 
 import org.example.app.order.OrderStatus;
 import org.junit.jupiter.params.ParameterizedTest;
