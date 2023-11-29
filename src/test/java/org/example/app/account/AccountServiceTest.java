@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,6 +27,20 @@ public class AccountServiceTest {
 
         //then
         assertThat(accountList,hasSize(2));
+    }
+    @Test
+    void getNoAllActiveAccounts() {
+
+        //given
+        AccountRepository accountRepository = mock(AccountRepository.class);
+        AccountService accountService = new AccountService(accountRepository);
+        given(accountRepository.getAllAccounts()).willReturn(List.of());
+
+        //when
+        List<Account> accountList = accountService.getAllActiveAccounts();
+
+        //then
+        assertThat(accountList,hasSize(0));
     }
 
     private List<Account> prepareAccountData(){
