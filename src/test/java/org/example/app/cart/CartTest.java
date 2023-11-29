@@ -1,5 +1,6 @@
-package org.example.app;
+package org.example.app.cart;
 
+import org.example.app.cart.Cart;
 import org.example.app.order.Order;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
