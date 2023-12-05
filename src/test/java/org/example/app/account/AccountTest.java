@@ -1,8 +1,5 @@
 package org.example.app.account;
 
-
-import org.example.app.account.Account;
-import org.example.app.account.Address;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
