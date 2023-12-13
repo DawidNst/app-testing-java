@@ -22,6 +22,10 @@ public class Order {
         return orderStatus;
     }
 
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     public void changeOrderStatus(OrderStatus orderStatus){
         this.orderStatus= orderStatus;
     }
