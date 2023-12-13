@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 class CartServiceTest {
 
@@ -32,6 +31,7 @@ class CartServiceTest {
         //then
 
         verify(cartHandler).sendToPrepare(cart);
+        verify(cartHandler, times(1)).sendToPrepare(cart);
 
     }
 }
