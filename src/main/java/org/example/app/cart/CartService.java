@@ -17,6 +17,7 @@ public class CartService {
             cart.getOrders().forEach(order -> {
                 order.changeOrderStatus(OrderStatus.PREPARING);
             });
+            return cart;
         } else {
             cart.getOrders().forEach(order -> {
                 order.changeOrderStatus(OrderStatus.REJECTED);
