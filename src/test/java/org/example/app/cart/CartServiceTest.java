@@ -9,6 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
 class CartServiceTest {
@@ -122,16 +123,18 @@ class CartServiceTest {
         CartHandler cartHandler = mock(CartHandler.class);
         CartService cartService = new CartService(cartHandler);
 
-        ArgumentCaptor<Cart> armunetCaptor = ArgumentCaptor.forClass(Cart.class);
+        ArgumentCaptor<Cart> argumentCaptor = ArgumentCaptor.forClass(Cart.class);
 
         given(cartHandler.canHandlerCart(cart)).willReturn(true);
 
         //when
 
-        Cart resultCart = cartService.processCart(armunetCaptor.capture());
+        Cart resultCart = cartService.processCart(cart);
 
         //then
 
+        then(cartHandler).should().sendToPrepare(cart);
+        verify(cartHandler).sendToPrepare(argumentCaptor.capture());
         verify(cartHandler).sendToPrepare(cart);
         verify(cartHandler, times(1)).sendToPrepare(cart);
     }
