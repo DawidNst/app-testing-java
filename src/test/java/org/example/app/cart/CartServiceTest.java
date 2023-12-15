@@ -3,6 +3,7 @@ package org.example.app.cart;
 import org.example.app.order.Order;
 import org.example.app.order.OrderStatus;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -108,4 +109,31 @@ class CartServiceTest {
         assertThrows(IllegalStateException.class, () -> cartService.processCart(cart));
 
     }
+
+    @Test
+    void processCartShouldBePropertArgumentCaptor() {
+
+        //given
+
+        Order order = new Order();
+        Cart cart = new Cart();
+        cart.addOrderToCart(order);
+
+        CartHandler cartHandler = mock(CartHandler.class);
+        CartService cartService = new CartService(cartHandler);
+
+        ArgumentCaptor<Cart> armunetCaptor = ArgumentCaptor.forClass(Cart.class);
+
+        given(cartHandler.canHandlerCart(cart)).willReturn(true);
+
+        //when
+
+        Cart resultCart = cartService.processCart(armunetCaptor.capture());
+
+        //then
+
+        verify(cartHandler).sendToPrepare(cart);
+        verify(cartHandler, times(1)).sendToPrepare(cart);
+    }
+
 }
