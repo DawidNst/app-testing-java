@@ -1,10 +1,12 @@
 package org.example.app.cart;
 
 import org.example.app.order.Order;
+import org.example.app.order.OrderStatus;
 import org.junit.jupiter.api.Test;
 
 
-
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
@@ -57,6 +59,7 @@ class CartServiceTest {
         //then
 
         verify(cartHandler, never()).sendToPrepare(cart);
+        assertThat(resultCart.getOrders().get(0).getOrderStatus(),equalTo(OrderStatus.REJECTED));
        
     }
 }
