@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willThrow;
 import static org.mockito.Mockito.*;
 
 class CartServiceTest {
@@ -89,7 +91,7 @@ class CartServiceTest {
     }
 
     @Test
-    void processCartShouldBeNotPropertArgumentMatchers() {
+    void canHAndlerCartThrowException() {
 
         //given
 
@@ -100,16 +102,14 @@ class CartServiceTest {
         CartHandler cartHandler = mock(CartHandler.class);
         CartService cartService = new CartService(cartHandler);
 
-        given(cartHandler.canHandlerCart(any(Cart.class))).willReturn(false);
+        given(cartHandler.canHandlerCart(cart)).willThrow(IllegalStateException.class);
 
         //when
-
-        Cart  resultCart = cartService.processCart(cart);
-
         //then
 
-        verify(cartHandler, never()).sendToPrepare(any(Cart.class));
-        assertThat(resultCart.getOrders().get(0).getOrderStatus(),equalTo(OrderStatus.REJECTED));
+        assertThrows(IllegalStateException.class, () -> cartService.processCart(cart));
+
+
 
     }
 }
