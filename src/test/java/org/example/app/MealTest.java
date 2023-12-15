@@ -75,10 +75,10 @@ class MealTest {
     }
 
     @Test
-    void exceptionShouldBeThrowIfHigherPrice(){
+    void exceptionShouldBeThrowIfHigherPrice() {
 
         //given
-        Meal meal = new Meal( 9, "Soup");
+        Meal meal = new Meal(9, "Soup");
 
         //when
         //then
@@ -86,7 +86,7 @@ class MealTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {10 , 20, 40, 60})
+    @ValueSource(ints = {10, 20, 40, 60})
     void mealPricesBeLowerThan20(int price) {
 
         assertThat(price, lessThan(70));
@@ -94,26 +94,27 @@ class MealTest {
 
     @ParameterizedTest
     @MethodSource("createMealsNameAndPrice")
-    void shouldHaveCorrectNameAndprice(String name , int price){
-        assertThat(name , containsString("burger" ));
-        assertThat(price , greaterThanOrEqualTo(20 ));
+    void shouldHaveCorrectNameAndprice(String name, int price) {
+        assertThat(name, containsString("burger"));
+        assertThat(price, greaterThanOrEqualTo(20));
 
     }
 
     private static Stream<Arguments> createMealsNameAndPrice() {
         return Stream.of(
-                Arguments.of("Hamburger" , 20),
-                Arguments.of("Cheeseburger" , 25)
+                Arguments.of("Hamburger", 20),
+                Arguments.of("Cheeseburger", 25)
         );
     }
 
     @ParameterizedTest
     @MethodSource("creatCakeNames")
-    void shouldCorrectCreatNameCake(String name){
-        assertThat(name , notNullValue());
+    void shouldCorrectCreatNameCake(String name) {
+        assertThat(name, notNullValue());
         assertThat(name, endsWith("cake"));
 
     }
+
     private static Stream<String> creatCakeNames() {
         List<String> cakeNames = Arrays.asList("Fruitcake", "Brownicake", "Blackonecake");
         return cakeNames.stream();
@@ -142,7 +143,8 @@ class MealTest {
         }
         return dynamicTests;
     }
-    private int calculatePrice( int price, int quantity) {
+
+    private int calculatePrice(int price, int quantity) {
 
         return price * quantity;
     }

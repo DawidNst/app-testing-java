@@ -11,9 +11,9 @@ public class Account {
 
     public Account(Address defaultDelivery) {
         this.defaultDelivery = defaultDelivery;
-        if (defaultDelivery != null){
+        if (defaultDelivery != null) {
             activate();
-        }else {
+        } else {
             this.active = false;
         }
     }

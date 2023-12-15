@@ -79,14 +79,14 @@ class AccountTest {
     void newAccountNotNullAdressShouldBeActive() {
 
         //given
-        Address address = new Address("Słonimska" , "24");
+        Address address = new Address("Słonimska", "24");
 
         //when
         Account account = new Account(address);
 
         //then
-        assumingThat(address != null, () ->{
-           assertTrue(account.isActive());
+        assumingThat(address != null, () -> {
+            assertTrue(account.isActive());
         });
     }
 
