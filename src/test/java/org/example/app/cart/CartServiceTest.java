@@ -140,4 +140,30 @@ class CartServiceTest {
         verify(cartHandler, times(1)).sendToPrepare(cart);
     }
 
+    @Test
+    void shouldDoNothingWhenProcessCart() {
+
+        //given
+
+        Order order = new Order();
+        Cart cart = new Cart();
+        cart.addOrderToCart(order);
+
+        CartHandler cartHandler = mock(CartHandler.class);
+        CartService cartService = new CartService(cartHandler);
+
+        given(cartHandler.canHandlerCart(cart)).willReturn(true);
+
+        doNothing().when(cartHandler).sendToPrepare(cart);
+        //when
+
+        Cart resultCart = cartService.processCart(cart);
+
+        //then
+
+        verify(cartHandler).sendToPrepare(cart);
+        verify(cartHandler, times(1)).sendToPrepare(cart);
+
+
+    }
 }
