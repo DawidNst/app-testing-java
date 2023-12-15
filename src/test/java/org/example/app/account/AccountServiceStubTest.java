@@ -20,6 +20,6 @@ class AccountServiceStubTest {
         List<Account> accountList = accountService.getAllActiveAccounts();
 
         //then
-        assertThat(accountList,hasSize(2));
+        assertThat(accountList, hasSize(2));
     }
 }

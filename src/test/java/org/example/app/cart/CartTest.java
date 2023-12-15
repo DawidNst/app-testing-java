@@ -24,8 +24,9 @@ class CartTest {
         //then
         assertTimeout(Duration.ofMillis(12), cart::simulateOrder);
     }
+
     @Test
-    void cartShouldNotBeEmptyAddingOrderToCart(){
+    void cartShouldNotBeEmptyAddingOrderToCart() {
 
         //given
         Order order = new Order();
@@ -50,11 +51,11 @@ class CartTest {
         ));
 
         assertAll(//asercja aby została spełniona musza zostać wykonane wszyskie warunki, korzysta z wyrażenia lamda, jeśli nie zostaną spełnione warunki pokaże błąd każdego
-                ()->assertThat(cart.getOrders(), notNullValue()),
-                ()->assertThat(cart.getOrders(), hasSize(1)),
-                ()->assertThat(cart.getOrders(), is(not(empty()))),
-                ()->assertThat(cart.getOrders(), is(not(emptyCollectionOf(Order.class)))),
-                ()->assertThat(cart.getOrders().get(0).getMeals(), empty())
+                () -> assertThat(cart.getOrders(), notNullValue()),
+                () -> assertThat(cart.getOrders(), hasSize(1)),
+                () -> assertThat(cart.getOrders(), is(not(empty()))),
+                () -> assertThat(cart.getOrders(), is(not(emptyCollectionOf(Order.class)))),
+                () -> assertThat(cart.getOrders().get(0).getMeals(), empty())
         );
     }
 

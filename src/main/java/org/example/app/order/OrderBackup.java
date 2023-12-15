@@ -6,7 +6,7 @@ public class OrderBackup {
 
     private Writer writer;
 
-    public Writer getWriter(){
+    public Writer getWriter() {
         return writer;
     }
 
@@ -16,10 +16,12 @@ public class OrderBackup {
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
         writer = new BufferedWriter(outputStreamWriter);
     }
- public void backupOder(Order order) throws IOException {
+
+    public void backupOder(Order order) throws IOException {
         writer.append(order.toString());
- }
-    public void closeFile() throws IOException{
+    }
+
+    public void closeFile() throws IOException {
         writer.close();
     }
 }

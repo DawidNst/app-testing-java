@@ -15,7 +15,7 @@ public class AccountRepositoryStub implements AccountRepository {
         Address address2 = new Address("Słonimska", "77/7");
         Account account3 = new Account(address2);
 
-        return Arrays.asList(account1,account2,account3);
+        return Arrays.asList(account1, account2, account3);
 
     }
 

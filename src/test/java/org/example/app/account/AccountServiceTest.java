@@ -26,8 +26,9 @@ public class AccountServiceTest {
         List<Account> accountList = accountService.getAllActiveAccounts();
 
         //then
-        assertThat(accountList,hasSize(2));
+        assertThat(accountList, hasSize(2));
     }
+
     @Test
     void getNoAllActiveAccounts() {
 
@@ -40,10 +41,10 @@ public class AccountServiceTest {
         List<Account> accountList = accountService.getAllActiveAccounts();
 
         //then
-        assertThat(accountList,hasSize(0));
+        assertThat(accountList, hasSize(0));
     }
 
-    private List<Account> prepareAccountData(){
+    private List<Account> prepareAccountData() {
 
         Address address1 = new Address("Sienkiewicza", "35/5");
         Account account1 = new Account(address1);
@@ -53,6 +54,6 @@ public class AccountServiceTest {
         Address address2 = new Address("Słonimska", "77/7");
         Account account3 = new Account(address2);
 
-        return Arrays.asList(account1,account2,account3);
+        return Arrays.asList(account1, account2, account3);
     }
 }

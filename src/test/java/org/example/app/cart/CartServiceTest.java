@@ -4,12 +4,10 @@ import org.example.app.order.Order;
 import org.example.app.order.OrderStatus;
 import org.junit.jupiter.api.Test;
 
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.willThrow;
 import static org.mockito.Mockito.*;
 
 class CartServiceTest {
@@ -81,12 +79,12 @@ class CartServiceTest {
 
         //when
 
-        Cart  resultCart = cartService.processCart(cart);
+        Cart resultCart = cartService.processCart(cart);
 
         //then
 
         verify(cartHandler, never()).sendToPrepare(any(Cart.class));
-        assertThat(resultCart.getOrders().get(0).getOrderStatus(),equalTo(OrderStatus.REJECTED));
+        assertThat(resultCart.getOrders().get(0).getOrderStatus(), equalTo(OrderStatus.REJECTED));
 
     }
 
@@ -108,8 +106,6 @@ class CartServiceTest {
         //then
 
         assertThrows(IllegalStateException.class, () -> cartService.processCart(cart));
-
-
 
     }
 }

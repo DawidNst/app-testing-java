@@ -26,9 +26,10 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public void changeOrderStatus(OrderStatus orderStatus){
-        this.orderStatus= orderStatus;
+    public void changeOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
+
     public List<Meal> getMeals() {
         return meals;
     }
@@ -36,13 +37,14 @@ public class Order {
     public void cancel() {
         this.meals.clear();
     }
+
     int totalPrice() {
 
         int sum = this.meals.stream().mapToInt(meal -> {
             return meal.getPrice();
         }).sum();
 
-        if(sum < 0) {
+        if (sum < 0) {
             throw new IllegalStateException("Price limit exceeded");
         } else {
             return sum;
