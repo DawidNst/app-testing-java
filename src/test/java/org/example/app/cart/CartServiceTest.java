@@ -144,11 +144,12 @@ class CartServiceTest {
         Order order = new Order();
         Cart cart = new Cart();
         cart.addOrderToCart(order);
+
         given(cartHandler.canHandlerCart(cart)).willReturn(true);
 
-        doNothing().when(cartHandler).sendToPrepare(cart);
+       // doNothing().when(cartHandler).sendToPrepare(cart);
         willDoNothing().given(cartHandler).sendToPrepare(cart);
-        willDoNothing().willDoNothing().willThrow(IllegalStateException.class).given(cartHandler).sendToPrepare(cart);
+       // willDoNothing().willDoNothing().willThrow(IllegalStateException.class).given(cartHandler).sendToPrepare(cart);
 
         //when
 
