@@ -63,12 +63,12 @@ public class AccountServiceTest {
         //given
         AccountRepository accountRepository = mock(AccountRepository.class);
         AccountService accountService = new AccountService(accountRepository);
-        given(accountRepository.getAllAccounts()).willReturn(List.of());
+        given(accountRepository.getByName("John")).willReturn(List.of());
 
         //when
-        List<String> accountList = accountService.fingByName("John");
+        List<String> accountName = accountService.fingByName("John");
 
         //then
-        assertThat(accountList, hasSize(0));
+        assertThat(accountName, hasSize(0));
     }
 }
