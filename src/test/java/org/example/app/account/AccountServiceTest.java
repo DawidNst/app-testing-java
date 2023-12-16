@@ -1,15 +1,17 @@
 package org.example.app.account;
 
+import org.hamcrest.Matcher;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class AccountServiceTest {
 
@@ -63,12 +65,13 @@ public class AccountServiceTest {
         //given
         AccountRepository accountRepository = mock(AccountRepository.class);
         AccountService accountService = new AccountService(accountRepository);
-        given(accountRepository.getByName("John")).willReturn(List.of());
+        given(accountRepository.getByName("John")).willReturn(Collections.singletonList("Smith"));
 
         //when
         List<String> accountName = accountService.fingByName("John");
 
         //then
-        assertThat(accountName, hasSize(0));
+       assertThat(accountName,hasSize(1));
     }
+
 }
