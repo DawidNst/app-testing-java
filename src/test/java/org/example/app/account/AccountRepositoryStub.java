@@ -19,4 +19,9 @@ public class AccountRepositoryStub implements AccountRepository {
 
     }
 
+    @Override
+    public List<String> getByName(String name) {
+        return null;
+    }
+
 }
