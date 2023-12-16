@@ -16,4 +16,7 @@ public class AccountService {
                 .filter(Account::isActive)
                 .collect(Collectors.toList());
     }
+    List<String> fingByName (String name) {
+        return accountRepository.getByName(name);
+    }
 }
