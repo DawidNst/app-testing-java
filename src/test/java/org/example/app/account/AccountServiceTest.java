@@ -75,7 +75,7 @@ public class AccountServiceTest {
         List<String> accountName = accountService.fingByName("John");
 
         //then
-       assertThat(accountName,hasSize(1));
+        assertThat(accountName, hasSize(1));
     }
 
 
