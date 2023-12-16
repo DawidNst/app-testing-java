@@ -8,6 +8,7 @@ import org.mockito.ArgumentCaptor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.*;
 
@@ -193,8 +194,28 @@ class CartServiceTest {
         //then
 
         then(cartHandler).should().sendToPrepare(cart);
-        assertThat(resultCart.getOrders().size() , equalTo(0));
+        assertThat(resultCart.getOrders().size(), equalTo(0));
 
     }
 
+    @Test
+    void deliveryShouldBeFree() {
+
+        //given
+        Cart cart = new Cart();
+        cart.addOrderToCart(new Order());
+        cart.addOrderToCart(new Order());
+        cart.addOrderToCart(new Order());
+
+        CartHandler cartHandler = mock(CartHandler.class);
+
+        //when
+
+        boolean isDeliveryFree = cartHandler.isDeliveryFree(cart);
+
+        //then
+
+        assertTrue(isDeliveryFree);
+
+    }
 }
