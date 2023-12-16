@@ -167,4 +167,37 @@ class CartServiceTest {
         verify(cartHandler).sendToPrepare(cart);
         verify(cartHandler, times(1)).sendToPrepare(cart);
     }
+
+    @Test
+    void shouldAnswerWhenProcessCart() {
+
+        //given
+
+        Order order = new Order();
+        Cart cart = new Cart();
+        cart.addOrderToCart(order);
+
+        CartHandler cartHandler = mock(CartHandler.class);
+        CartService cartService = new CartService(cartHandler);
+
+        doAnswer(invocationOnMock -> {
+            Cart argumentCart = invocationOnMock.getArgument(0);
+            argumentCart.clearCart();
+            return true;
+        }).when(cartHandler).canHandlerCart(cart);
+
+        //when
+
+        Cart resultCart = cartService.processCart(cart);
+
+        //then
+
+        assertThat(resultCart.getOrders().size() , equalTo(0));
+
+
+
+
+
+    }
+
 }
