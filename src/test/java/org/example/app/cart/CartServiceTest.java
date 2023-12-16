@@ -195,10 +195,6 @@ class CartServiceTest {
         then(cartHandler).should().sendToPrepare(cart);
         assertThat(resultCart.getOrders().size() , equalTo(0));
 
-
-
-
-
     }
 
 }
