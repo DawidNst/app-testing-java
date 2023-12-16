@@ -207,7 +207,8 @@ class CartServiceTest {
         cart.addOrderToCart(new Order());
         cart.addOrderToCart(new Order());
 
-        CartHandler cartHandler = mock(CartHandler.class);
+        CartHandler cartHandler = mock(CartHandler.class);//test nie przechodzi , nadal jest mockiem"cartHandler"
+        given(cartHandler.isDeliveryFree(cart)).willCallRealMethod();//wykorzystanie metody call real method
 
         //when
 
