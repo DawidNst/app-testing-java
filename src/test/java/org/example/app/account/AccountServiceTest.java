@@ -56,4 +56,19 @@ public class AccountServiceTest {
 
         return Arrays.asList(account1, account2, account3);
     }
+
+    @Test
+    void getAccountsByName() {
+
+        //given
+        AccountRepository accountRepository = mock(AccountRepository.class);
+        AccountService accountService = new AccountService(accountRepository);
+        given(accountRepository.getAllAccounts()).willReturn(List.of());
+
+        //when
+        List<String> accountList = accountService.fingByName("John");
+
+        //then
+        assertThat(accountList, hasSize(0));
+    }
 }
