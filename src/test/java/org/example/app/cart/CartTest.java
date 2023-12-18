@@ -23,6 +23,7 @@ class CartTest {
         //when
         //then
         assertTimeout(Duration.ofMillis(12), cart::simulateOrder);
+
     }
 
     @Test

@@ -120,6 +120,7 @@ class MealTest {
     private static Stream<String> creatCakeNames() {
         List<String> cakeNames = Arrays.asList("Fruitcake", "Brownicake", "Blackonecake");
         return cakeNames.stream();
+
     }
 
     @TestFactory
@@ -161,7 +162,6 @@ class MealTest {
 
        //then
         assertThat(result, equalTo(1000));
-
 
     }
 
