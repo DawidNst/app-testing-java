@@ -47,7 +47,6 @@ class CartServiceTest {
         verify(cartHandler).sendToPrepare(cart);
         verify(cartHandler, times(1)).sendToPrepare(cart);
 
-
     }
 
     @Test
@@ -150,9 +149,9 @@ class CartServiceTest {
 
         given(cartHandler.canHandlerCart(cart)).willReturn(true);
 
-       // doNothing().when(cartHandler).sendToPrepare(cart);
+        // doNothing().when(cartHandler).sendToPrepare(cart);
         willDoNothing().given(cartHandler).sendToPrepare(cart);
-       // willDoNothing().willDoNothing().willThrow(IllegalStateException.class).given(cartHandler).sendToPrepare(cart);
+        // willDoNothing().willDoNothing().willThrow(IllegalStateException.class).given(cartHandler).sendToPrepare(cart);
 
         //when
 
