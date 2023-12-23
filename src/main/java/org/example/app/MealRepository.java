@@ -23,9 +23,14 @@ public class MealRepository {
 
     public List<Meal> findByName(String mealName) {
 
-        List<Meal> collect = meals.stream()
+        return meals.stream()
                 .filter(meal -> meal.getName().equals(mealName))
                 .collect(Collectors.toList());
-        return collect;
+    }
+
+    public List<Meal> findByPrice(int price) {
+        return meals.stream()
+                .filter(meal -> meal.getPrice()==price)
+                .collect(Collectors.toList());
     }
 }

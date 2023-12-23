@@ -1,5 +1,6 @@
 package org.example.app;
 
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class MealRepositoryTest {
+
 
     @Test
     void shouldBeAbleToAddMealToRepository() {
@@ -54,5 +56,23 @@ public class MealRepositoryTest {
 
 
     }
+
+    @Test
+    void shouldBeAbleToFindMealByPrice() {
+        //given
+        MealRepository mealRepository = new MealRepository();
+        Meal meal = new Meal(20, "Pizza");
+        mealRepository.add(meal);
+
+        //when
+        List<Meal> results = mealRepository.findByPrice(20);
+
+        //then
+        assertThat(results.size(), is(1));
+
+
+    }
+
+
 
 }
