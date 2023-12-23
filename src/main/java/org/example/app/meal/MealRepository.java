@@ -24,17 +24,20 @@ public class MealRepository {
     public List<Meal> findByName(String mealName, boolean exactMatch) {
 
 
+        List<Meal> result = new ArrayList<>();
+
         if (exactMatch) {
 
-            return meals.stream()
+            result = meals.stream()
                     .filter(meal -> meal.getName().equals(mealName))
                     .collect(Collectors.toList());
 
         } else {
-            return meals.stream()
+            result = meals.stream()
                     .filter(meal -> meal.getName().startsWith(mealName))
                     .collect(Collectors.toList());
         }
+        return result;
     }
 
     public List<Meal> findByPrice(int price) {
