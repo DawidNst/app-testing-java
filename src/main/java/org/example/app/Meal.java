@@ -19,6 +19,9 @@ public class Meal {
         this.name = name;
     }
 
+    public Meal() {
+    }
+
     public int getQuantity() {
         return quantity;
     }

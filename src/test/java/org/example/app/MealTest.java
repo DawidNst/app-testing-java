@@ -4,11 +4,14 @@ import org.example.app.order.Order;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.ArgumentMatchers;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 
 import java.util.ArrayList;
@@ -20,7 +23,7 @@ import java.util.stream.Stream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.mock;
 
 
@@ -113,7 +116,7 @@ class MealTest {
     @MethodSource("creatCakeNames")
     void shouldCorrectCreatNameCake(String name) {
         assertThat(name, notNullValue());
-        assertThat(name, endsWith("cake"));
+        assertThat(name, endsWithIgnoringCase("cake"));
 
     }
 
@@ -161,6 +164,26 @@ class MealTest {
        int result = meal.sumPrice();
 
        //then
+        assertThat(result, equalTo(1000));
+
+    }
+
+    @Test
+
+    void testMealSumPriceSpy() {
+
+        //given
+        Meal meal = spy(Meal.class);
+
+        given(meal.getPrice()).willReturn(20);
+        given(meal.getQuantity()).willReturn(50);//mock zwraca domyslną wartośc czyli 0
+
+        //when
+        int result = meal.sumPrice();
+
+        //then
+        then(meal).should().getPrice();
+        then(meal).should().getQuantity();
         assertThat(result, equalTo(1000));
 
     }
