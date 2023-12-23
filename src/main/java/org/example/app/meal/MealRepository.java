@@ -35,10 +35,11 @@ public class MealRepository {
                     .collect(Collectors.toList());
         }
     }
-        public List<Meal> findByPrice ( int price){
-            return meals.stream()
-                    .filter(meal -> meal.getPrice() == price)
-                    .collect(Collectors.toList());
-        }
+
+    public List<Meal> findByPrice(int price) {
+        return meals.stream()
+                .filter(meal -> meal.getPrice() == price)
+                .collect(Collectors.toList());
     }
+}
 
