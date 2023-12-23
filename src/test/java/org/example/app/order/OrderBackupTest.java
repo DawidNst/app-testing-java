@@ -1,8 +1,6 @@
 package org.example.app.order;
 
-import org.example.app.Meal;
-import org.example.app.order.Order;
-import org.example.app.order.OrderBackup;
+import org.example.app.meal.Meal;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;

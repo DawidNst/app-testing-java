@@ -1,6 +1,6 @@
 package org.example.app.order;
 
-import org.example.app.Meal;
+import org.example.app.meal.Meal;
 
 import java.util.ArrayList;
 import java.util.List;

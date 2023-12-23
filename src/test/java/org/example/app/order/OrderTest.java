@@ -1,7 +1,6 @@
 package org.example.app.order;
 
-import org.example.app.Meal;
-import org.example.app.order.Order;
+import org.example.app.meal.Meal;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

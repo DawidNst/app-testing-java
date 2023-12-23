@@ -1,4 +1,5 @@
-package org.example.app;
+package org.example.app.meal;
+
 
 
 import org.junit.jupiter.api.Test;
