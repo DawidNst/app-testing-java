@@ -36,5 +36,6 @@ public class Account {
 
     public boolean isActive() {
         return this.active;
+
     }
 }
