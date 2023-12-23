@@ -21,7 +21,7 @@ public class MealRepository {
         meals.remove(meal);
     }
 
-    public List<Meal> findByName(String mealName) {
+    public List<Meal> findByName(String mealName, boolean exactMatch) {
 
         return meals.stream()
                 .filter(meal -> meal.getName().equals(mealName))

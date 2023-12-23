@@ -42,7 +42,7 @@ public class MealRepositoryTest {
     }
 
     @Test
-    void shouldBeAbleToFindMealByName() {
+    void shouldBeAbleToFindMealByExactName() {
 
         //given
         MealRepository mealRepository = new MealRepository();
@@ -50,7 +50,7 @@ public class MealRepositoryTest {
         mealRepository.add(meal);
 
         //when
-        List<Meal> results = mealRepository.findByName("Pizza");
+        List<Meal> results = mealRepository.findByName("Pizza", true);
 
         //then
         assertThat(results.size(), is(1));
