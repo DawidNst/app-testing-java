@@ -20,11 +20,11 @@ public class MealRepositoryTest {
         mealRepository.add(meal);
 
         //then
-        assertThat(mealRepository.getAllMeals().get(0),is(meal));
+        assertThat(mealRepository.getAllMeals().get(0), is(meal));
     }
 
     @Test
-    void shouldBeAbleToRemoveMealFromRepository(){
+    void shouldBeAbleToRemoveMealFromRepository() {
 
         //given
         MealRepository mealRepository = new MealRepository();
@@ -35,19 +35,24 @@ public class MealRepositoryTest {
         mealRepository.delet(meal);
 
         //then
-        assertThat(mealRepository.getAllMeals(),not(contains(meal)));
+        assertThat(mealRepository.getAllMeals(), not(contains(meal)));
     }
 
     @Test
     void shouldBeAbleToFindMealByName() {
 
         //given
-        Meal meal = new Meal(20 , "pizza");
+        MealRepository mealRepository = new MealRepository();
+        Meal meal = new Meal(20, "Pizza");
         mealRepository.add(meal);
 
         //when
         List<Meal> results = mealRepository.findByName("Pizza");
-    }
 
+        //then
+        assertThat(results.size(), is(1));
+
+
+    }
 
 }
