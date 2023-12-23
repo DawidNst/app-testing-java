@@ -59,6 +59,25 @@ public class MealRepositoryTest {
     }
 
     @Test
+    void shouldBeAbleToFindMealByStartingLetters(){
+
+        //given
+        MealRepository mealRepository = new MealRepository();
+        Meal meal = new Meal(20, "Pizza");
+        Meal meal1 = new Meal(20, "Pitta");
+        mealRepository.add(meal);
+        mealRepository.add(meal1);
+
+        //when
+        List<Meal> results = mealRepository.findByName("P", false);
+
+        //then
+        assertThat(results.size(), is(2));
+
+    }
+
+
+    @Test
     void shouldBeAbleToFindMealByPrice() {
         //given
         MealRepository mealRepository = new MealRepository();

@@ -23,14 +23,22 @@ public class MealRepository {
 
     public List<Meal> findByName(String mealName, boolean exactMatch) {
 
-        return meals.stream()
-                .filter(meal -> meal.getName().equals(mealName))
-                .collect(Collectors.toList());
+        if (exactMatch) {
+
+            return meals.stream()
+                    .filter(meal -> meal.getName().equals(mealName))
+                    .collect(Collectors.toList());
+
+        } else {
+            return meals.stream()
+                    .filter(meal -> meal.getName().startsWith(mealName))
+                    .collect(Collectors.toList());
+        }
+    }
+        public List<Meal> findByPrice ( int price){
+            return meals.stream()
+                    .filter(meal -> meal.getPrice() == price)
+                    .collect(Collectors.toList());
+        }
     }
 
-    public List<Meal> findByPrice(int price) {
-        return meals.stream()
-                .filter(meal -> meal.getPrice()==price)
-                .collect(Collectors.toList());
-    }
-}
