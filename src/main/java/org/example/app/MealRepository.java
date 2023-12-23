@@ -14,4 +14,7 @@ public class MealRepository {
     public List<Meal> getAllMeals() {
         return meals;
     }
+
+    public void delet(Meal meal) {
+    }
 }

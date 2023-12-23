@@ -20,4 +20,15 @@ public class MealRepositoryTest {
         //then
         assertThat(mealRepository.getAllMeals().get(0),is(meal));
     }
+
+    @Test
+    void shouldBeAbelToRemoveMealFromRepository(){
+
+        //given
+        MealRepository mealRepository = new MealRepository();
+        Meal meal = new Meal(20, "Pizza");
+
+        //when
+        mealRepository.delet(meal);
+    }
 }
