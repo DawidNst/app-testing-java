@@ -169,7 +169,7 @@ class MealTest {
     }
 
     @Test
-
+    @ExtendWith(MockitoExtension.class)
     void testMealSumPriceSpy() {
 
         //given
