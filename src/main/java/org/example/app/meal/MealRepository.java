@@ -24,7 +24,7 @@ public class MealRepository {
     public List<Meal> findByName(String mealName, boolean exactMatch) {
 
 
-        List<Meal> result = new ArrayList<>();
+        List<Meal> result ;
 
         if (exactMatch) {
 
