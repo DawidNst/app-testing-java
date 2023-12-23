@@ -3,7 +3,7 @@ package org.example.app;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class MealRepositoryTest {
 
@@ -27,8 +27,12 @@ public class MealRepositoryTest {
         //given
         MealRepository mealRepository = new MealRepository();
         Meal meal = new Meal(20, "Pizza");
+        mealRepository.add(meal);
 
         //when
         mealRepository.delet(meal);
+
+        //then
+        assertThat(mealRepository.getAllMeals(),not(contains(meal)));
     }
 }

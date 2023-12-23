@@ -16,5 +16,6 @@ public class MealRepository {
     }
 
     public void delet(Meal meal) {
+        meals.remove(meal);
     }
 }
