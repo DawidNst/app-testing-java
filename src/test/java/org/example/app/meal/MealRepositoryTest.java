@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 public class MealRepositoryTest {
 
 
-    @Test
+    @Test 
     void shouldBeAbleToAddMealToRepository() {
 
         //given
